@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="font-family.css">
+    <link rel="stylesheet" href="iconfont.css">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html, body, main {
+        width: 100%;
+        height: 100%;
+    }
+    main {
+        background:linear-gradient(to right top, rgba(38,50,105,0.78), rgba(255,152,0,0.45)),center center no-repeat url(https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1530608507&di=6f6736eecb242d6128a166202c791c7e&src=http://img.zcool.cn/community/0198ad59a6a456a801211d251ced68.jpg@3000w_1l_2o_100sh.jpg);
+        background-size: coral;
+        
+    }
+    a {
+        font-family: iconfont;
+        text-decoration: none;
+    }
+    .fanZhuan-qieHuan {
+        display: none;
+    }
+    .qieHuan {
+        width: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        padding: 10px;
+        transform: translate(-50%,-50%);
+        background-color: #fff;
+        box-shadow: 0 3px 4px 5px rgba(0,0,0,0.2);
+    }
+    .qieHuan .guanbi {
+        display: inline-block;
+        margin-top: 10px;
+        margin-left: 93%;
+    }
+    .qieHuan .tabs {
+        text-align: center;
+    }
+    .qieHuan .tabs a {
+        padding: 16px;
+        font-size: 20px;
+        color: #444;
+    }
+    .qieHuan .tabs a.active {
+        border-bottom: 2px solid #444;
+        color: #444;
+        
+    }
+    .qieHuan .yinCang {
+        text-align: center;
+        margin-top: 25px;
+    }
+    .qieHuan .input-field {
+        
+        text-align: center;
+    }
+    .qieHuan .input-field input {
+        margin-top: 10px;
+        height: 40px;
+    }
+    .qieHuan .input-field span {
+        font-family: iconfont;
+        position: absolute;
+        margin-top: 17px;
+        margin-left: 2%;
+    }
+    .qieHuan .tijiao {
+        margin: 10px 0 10px 20%;
+    }
+    .qieHuan .tijiao input {
+        display: inline-block;
+        width: 20%; 
+    }
+    .fanZhuan-qieHuan.dengLu .qieHuan-dengLu,
+    .fanZhuan-qieHuan.zhuCe .qieHuan-zhuCe {
+        transform: translate(-50%,-50%) rotateY(0deg);
+        backface-visibility: hidden;
+        transition: all 1s;
+    }
+    .fanZhuan-qieHuan.dengLu .qieHuan-zhuCe,
+    .fanZhuan-qieHuan.zhuCe .qieHuan-dengLu {
+        transform: translate(-50%,-50%) rotateY(180deg);
+        backface-visibility: hidden;
+        transition: all 1s;
+    }
+    .guanbi {
+        display: inline-block;
+        width: 29px;
+        height: 29px;
+        background: url(https://i.loli.net/2018/07/08/5b41b84d7f316.png) no-repeat;
+        background-position: -290px;
+
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="login">&#xe604;</a>
+    </header>
+    <main>
+        <div class="fanZhuan-qieHuan dengLu">
+
+            <div class="qieHuan qieHuan-dengLu">
+                <a href="#" class="guanbi"></a>
+                <div class="tabs">
+                    <a href="#" class="dengLu active">登陆</a>
+                    <a href="#" class="zhuCe">注册</a>
+                </div>
+                <div class="yinCang" style='width: 100%;height:20px; color: red;'></div>
+                <form action="/denglu" method="POST">
+                <div class="input-field">
+                    <span>&#xe604;</span>
+                    <input type="text" name="username" placeholder="用户名">
+                </div>
+                <div class="input-field">
+                    <span>&#xe640;</span>
+                    <input type="password" name="password" placeholder="密码">
+                    </div>
+                <div class="tijiao">
+                    <input type="submit" value="登录">
+                </div>
+                </form>
+            </div>
+            <div class="qieHuan qieHuan-zhuCe">
+                    <a href="#" class="guanbi icon-mima"></a>
+                    <div class="tabs">
+                        <a href="#" class="dengLu">登陆</a>
+                        <a href="#" class="zhuCe active">注册</a>
+                    </div>
+                    <div class="yinCang" style='width: 100%;height:20px; color: red;'></div>
+                    <form action="/denglu" method="POST">
+                    <div class="input-field">
+                        <span>&#xe604;</span>
+                        <input type="text" name="username" placeholder="用户名">
+                    </div>
+                    <div class="input-field">
+                        <span>&#xe640;</span>
+                        <input type="password" name="password" placeholder="密码">
+                        </div>
+                    <div class="input-field">
+                        <span>&#xe640;</span>
+                        <input type="password" name="password2" placeholder="确认密码">
+                    </div>
+                    <div class="tijiao">
+                        <input type="submit" value="注册">
+                    </div>
+                    </form>
+                </div>
+        </div>
+    </main>
+    <script>
+     function $(selector) {
+        return document.querySelector(selector)
+    }
+    function $$(selector) {
+        return document.querySelectorAll(selector)
+    }
+    // 点击弹出登陆注册框
+    $('header .login').onclick = function(e) {
+        e.stopPropagation()
+        $('.fanZhuan-qieHuan').style.display="block"
+    }
+    
+    //点击登陆和注册进行切换
+    $('.fanZhuan-qieHuan').addEventListener('click', function(e){
+        e.stopPropagation()
+        if(e.target.classList.contains('dengLu')) {
+            $('.fanZhuan-qieHuan').classList.remove('zhuCe')
+            $('.fanZhuan-qieHuan').classList.add('dengLu')
+        }
+        if(e.target.classList.contains('zhuCe')) {
+            $('.fanZhuan-qieHuan').classList.add('zhuCe')
+            $('.fanZhuan-qieHuan').classList.remove('dengLu')
+        }
+         window.target = e.target
+        //点击X号关闭登陆注册框
+        if(e.target.classList.contains('guanbi')) {
+            $('.fanZhuan-qieHuan').style.display="none"
+        }
+    })
+    document.addEventListener('click', function(){
+      $('.fanZhuan-qieHuan').style.display = 'none'
+    })
+
+    $('.qieHuan-dengLu form').addEventListener('submit',function(e) {
+        e.preventDefault()
+        if(!/^\w{3,8}$/.test($('.qieHuan-dengLu input[name=username]').value)) {
+            $('.qieHuan-dengLu .yinCang').innerText = '用户名需输入3-8个字符，包括字母数字下划线'
+            return false
+        }
+        if(!/^\w{6,10}$/.test($('.qieHuan-dengLu input[name=password]').value)){
+        $('.qieHuan-dengLu .yinCang').innerText = '密码需输入6-10个字符，包括字母数字下划线'
+        return false
+      }
+      this.submit()
+    })
+
+    $('.qieHuan-zhuCe form').addEventListener('submit', function(e){
+      e.preventDefault()
+      if(!/^\w{3,8}$/.test($('.qieHuan-zhuCe input[name=username]').value)){
+        $('.qieHuan .yinCang').innerText = '用户名需输入3-8个字符，包括字母数字下划线'
+        return false
+      }
+      if(/^hunger$|^ruoyu$/.test($('.qieHuan-zhuCe input[name=username]').value)){
+        $('.qieHuan-zhuCe .yinCang').innerText = '用户名已存在'
+        return false
+      }
+      if(!/^\w{6,10}$/.test($('.qieHuan-zhuCe input[name=password]').value)){
+        $('.qieHuan-zhuCe .yinCang').innerText = '密码需输入6-10个字符，包括字母数字下划线'
+        return false
+      }
+      if($('.qieHuan-zhuCe input[name=password]').value !== $('.qieHuan-zhuCe input[name=password2]').value){
+        $('.qieHuan-zhuCe .yinCang').innerText = '两次输入的密码不一致'
+        return false
+      }
+      this.submit()      
+    })
+    </script>
+</body>
+</html>
